@@ -1,0 +1,428 @@
+<html>
+    <head>
+        <title>Simple_calculator</title>
+        <style>
+            .box{
+                max-height: 450px;
+                max-width: 280px;
+                margin-left:auto;
+                margin-right: auto;
+                background-color: rgb(8, 8, 8);
+                border:3px solid burlywood;
+                display: flex;
+                align-items: center;
+                padding: 1%;
+               
+
+            }
+            #textA{
+               
+                background-color: rgb(43, 200, 214);
+                color: blanchedalmond;
+                border:3px solid burlywood;
+                height:50px;
+                width:auto;
+                padding: 7px;
+                box-sizing: border-box;
+                font: 1em sans-serif;
+                font-size: larger;
+            }
+            #buttons{
+                display: flex;
+                flex-flow: wrap;
+
+            }
+            .num{
+                height: 50px;
+                width:70px;
+                background:linear-gradient(black,blue);
+                color:white;
+                font-size: x-large;
+            }
+            .dot{
+                height: 50px;
+                width:70px;
+                background:linear-gradient(violet,blue);
+                color:white;
+                font-size: x-large;
+            }
+            #plus,#minus,#multy,#divide,#operation{
+                height: 50px;
+                width:70px;
+                background:linear-gradient(blue,violet);
+                color:white;
+                font-size: x-large;
+            }
+            #refresh{
+                height: 50px;
+                width:70px;
+                background:linear-gradient(green,grey);
+                color:white;
+                font-size: x-large;
+            }
+           
+        h1{
+            color:white;
+        }
+        @media (min-width:480px){
+    .row{
+        background-color: red;
+        flex-direction: column;
+        
+        
+    }
+    .box{
+        margin-top: 25px;
+        width:92%;
+
+    }
+
+
+}
+
+@media (min-width:600px){
+    .row{
+        background-color:pink;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+        
+    }
+    .box{
+        
+        width: 42%;
+
+    }
+
+
+}
+
+@media (min-width:801px){
+    .row{
+        background-color:yellow;
+        flex-direction: row;
+        flex-wrap: wrap;
+        
+        
+    }
+    .box{
+        
+        width: 42%;
+
+    }
+
+
+}
+
+@media (min-width:1025px){
+    .row{
+        background-color:red;
+        flex-direction: row;
+        
+        
+        
+    }
+    .box{
+        
+        width: 30%;
+
+    }
+
+
+}
+
+            
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            
+        <div id ="buttons">
+             <h1>Arithmetic operation 2 no. </h1>
+            <textarea cols="25" id="textA" onfocus="this.value=''"></textarea>
+            <button class="num"id="zero">0</button>
+            <button class="num" id="one">1</button>
+            <button class="num" id="two">2</button>
+            <button class="num" id="three">3</button>
+            <button class="num" id="four">4</button>
+            <button class="num" id="five">5</button>
+            <button class="num" id="six">6</button>
+            <button class="num" id="seven">7</button>
+            <button class="num" id="eight">8</button>
+            <button class="num" id="nine">9</button>
+            <button class="dot" id="dot">.</button>
+            <button id="plus">+</button>
+            <button id="minus">-</button>
+            <button id="multy">*</button>
+            <button id="divide">/</button>
+            <button id="operation">=</button>
+            <button id="refresh">reset</button>
+            
+        </div>
+        </div>
+        <script type="text/javascript">
+         let zero =document.getElementById("zero");
+         let one =document.getElementById("one");
+         let two =document.getElementById("two");
+         let three =document.getElementById("three");
+         let four =document.getElementById("four");
+         let five =document.getElementById("five");
+         let six =document.getElementById("six");
+         let seven =document.getElementById("seven");
+         let eight =document.getElementById("eight");
+         let nine =document.getElementById("nine");
+           let dot =document.getElementById("dot");
+        let textA =document.getElementById("textA");
+        let numb = document.getElementsByClassName("num");
+            let plus=document.getElementById("plus");
+            let minus=document.getElementById("minus");
+            let multy=document.getElementById("multy");
+            let divide=document.getElementById("divide");
+            let equ = document.getElementById("operation");
+            let refresh = document.getElementById("refresh");
+          
+           
+            const x = [0];const z = [0];var count=0;let str =[" "];let op;
+           let a = ()=>{
+                str[0] +="0";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "0";
+                console.log(x);
+               }
+              
+               else{
+                z[0]+= "0";
+                console.log(z);
+               }
+           }
+        zero.addEventListener("click",a);
+           let b = ()=>{
+            str[0] +="1";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "1";
+                console.log(x);
+               }
+              
+               else{
+                z[0]+= "1";
+                console.log(z);
+               }
+           }
+        one.addEventListener("click",b);
+           
+        let c = ()=>{
+            str[0] +="2";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "2";
+                console.log(x);
+               }
+             
+               else{
+                z[0]+= "2";
+                console.log(z);
+               }
+           }
+        two.addEventListener("click",c);
+           
+        let d = ()=>{
+            str[0] +="3";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "3";
+                
+               }
+              
+               else{
+                z[0]+= "3";
+               }
+           }
+        three.addEventListener("click",d);
+           
+        let e = ()=>{
+            str[0] +="4";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "4";
+                
+               }
+              
+               else{
+                z[0]+= "4";
+               }
+           }
+        four.addEventListener("click",e);
+           
+        let f = ()=>{
+            str[0] +="5";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "5";
+           
+               }
+              
+               else{
+                z[0]+= "5";
+               }
+           }
+        five.addEventListener("click",f);
+           
+        let g = ()=>{
+            str[0] +="6";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "6";
+               
+               }
+             
+               else{
+                z[0]+= "6";
+               }
+           }
+        six.addEventListener("click",g);
+           
+        let h = ()=>{
+            str[0] +="7";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "7";
+             
+               }
+              
+               else{
+                z[0]+= "7";
+               }
+           }
+        seven.addEventListener("click",h);
+           
+        let iq = ()=>{
+            str[0] +="8";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "8";
+                
+               }
+             
+               else{
+                z[0]+= "8";
+               }
+           }
+        eight.addEventListener("click",iq);
+           
+        let j = ()=>{
+            str[0] +="9";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= "9";
+                
+               }
+             
+               else{
+                z[0]+= "9";
+               }
+           }
+        nine.addEventListener("click",j);
+           
+        let k = ()=>{
+            str[0] +=".";
+               textA.innerText=str[0];
+               if(count==0){
+                x[0]+= ".";
+               
+               }
+              
+             
+               else{
+                z[0]+= ".";
+               }
+           }
+        dot.addEventListener("click",k);
+           
+        let p = ()=>{
+            str[0] +="+";
+            op = "+";
+               textA.innerText=str[0];
+               count++;
+           }
+        plus.addEventListener("click",p);
+           
+        let m = ()=>{
+            str[0] +="-";
+            op = "-";
+               textA.innerText=str[0];
+               count++;
+           }
+        minus.addEventListener("click",m);
+           
+        let mlt = ()=>{
+            str[0] +="*";
+            op = "*";
+               textA.innerText=str[0];
+               count++;
+           }
+        multy.addEventListener("click",mlt);
+           
+        let dv = ()=>{
+            str[0] +="/";
+            op = "/";
+               textA.innerText=str[0];
+               count++;
+           }
+        divide.addEventListener("click",dv);
+           
+        let eq = ()=>{
+            str[0] +="=";
+          
+               textA.innerText=str[0];
+               let total =0;
+               
+               
+            const num1 = x[0];
+          
+            const n1 = parseFloat(num1);
+            console.log("value of num1 = "+n1);
+            console.log("type of num1 = "+typeof(n1));
+            
+            const num2 = z[0];
+            const n2 =parseFloat(num2)
+            
+            console.log("value of num2 = "+n2);
+            console.log("type of num2 = "+typeof(n2));
+          
+
+        switch(op){
+            case "+":total += n1 + n2 ;
+                        str[0]+=total;
+                        textA.innerText=str[0];
+                        break;
+            case  "-":total += n1 - n2 ;
+                        str[0]+=total;
+                        textA.innerText=str[0];
+                        break;
+            case  "*":total += n1 * n2 ;
+                        str[0]+=total;
+                        textA.innerText=str[0];
+                        break;
+            case  "/":total += n1 / n2 ;
+                        str[0]+=total;
+                        textA.innerText=str[0];
+                        break;
+        }  
+       
+
+           }
+           equ.addEventListener("click",eq);
+    
+         let fresh =()=>{
+             location.reload();
+         }
+        refresh.addEventListener("click",fresh);
+        textA.addEventListener("click",fresh);
+        </script>
+
+
+
+    </body>
+</html>
