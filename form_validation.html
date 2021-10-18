@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+
+	<link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style type="text/css">
+		*{
+			box-sizing: border-box;
+		}
+		body{
+			background: lightblue;
+			font-family: Questrial;
+			display: flex;
+			justify-content: center;
+			min-height: 100vh;
+			/* padding:25px; */
+
+		}
+		.container{
+			background: #fff;
+			border-radius: 5px;
+			box-shadow:5px 5px 1px  rgba(194, 194, 194, 0.7);
+			overflow:hidden;
+			width: 400px;
+			/* max-width: 100%; */
+		}
+		.header {
+			border-bottom:1px solid #550099;
+			background:#f7f7f7;
+			padding: 20px 40px;
+		}
+		.header h2{
+			margin: 0;
+		}
+		.form{
+			padding: 30px 40px;
+		}
+		.form-control{
+			padding-bottom: 20px;
+			position: relative;
+		}
+		.form-control label{
+			display: inline-block;
+			margin-bottom: 5px;
+		}
+
+		.form-control input{
+			font-family: inherit;
+			border: 2px solid #f0f0f0;
+			border-radius: 4px;
+			display:block;
+			font-size: 14px;
+			padding: 10px;
+			width: 100%;
+
+		}
+		.form-control input:focus{
+			border-color: #777;
+		}
+		.form-control.success input{
+			border-color:#2ecc71;
+		}
+		.form-control.error input{
+			border-color:#e74c3c;
+		}
+		.form-control i{
+			visibility: hidden;
+			position: absolute;
+			top: 32px;
+			right: 10px;
+
+		}
+		.form-control.success i.fa-check-circle{
+			visibility: visible;
+			color:#2ecc71 ;
+		}
+		.form-control.error i.fa-exclamation-circle{
+			visibility: visible;
+			color:#e74c3c;
+		}
+
+		.form-control small{
+			color:#e74c3c ;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			visibility: hidden;
+
+		}
+
+		.form-control.error small{
+			visibility: visible;
+		}
+		.form button{
+			background: #8e44ad;
+			border: 2px solid #8e44ad;
+			border-radius: 4px;
+			color: #fff;
+			display: block;
+			font-family: inherit;
+			font-size: 16px;
+			padding: 10px;
+			margin-top: 20px;
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+
+
+	<div class="container">
+		<div class="header">
+			<h2>Create Account</h2>
+		</div>
+	
+
+	<form id="form" class="form">
+		<div class="form-control">
+			<label for="username">UserName</label>
+			<input type="text" placeholder="Enter Name" id="username">
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error Msg</small>
+		</div>
+		<div class="form-control">
+			<label for="email">Email</label>
+			<input type="email" placeholder="Enter Email" id="email">
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error Msg</small>
+		</div>
+		<div class="form-control">
+			<label for="password">Password</label>
+			<input type="password" placeholder="Enter Password" id="password">
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error Msg</small>
+		</div>
+		<div class="form-control">
+			<label for="Passwordc">Password Check</label>
+			<input type="password" placeholder="Enter confirm Password" id="password2">
+			<i class="fas fa-check-circle"></i>
+			<i class="fas fa-exclamation-circle"></i>
+			<small>Error Msg</small>
+		</div>
+		<button>submit</button>
+	</form>
+</div>	
+
+</body>
+
+<script type="text/javascript">
+
+
+	const form  = document.getElementById("form");
+	const username = document.getElementById("username");
+	const email = document.getElementById("email");
+	const password = document.getElementById("password");
+	const password2 = document.getElementById("password2"); 
+
+	form.addEventListener('submit',e =>{
+		e.preventDefault();
+		checkInputs();
+	});
+
+	function checkInputs() {
+
+
+	const usernameValue = document.getElementById("username").value.trim();
+	const emailValue = document.getElementById("email").value.trim();
+	const passwordValue = document.getElementById("password").value.trim();
+	const password2Value = document.getElementById("password2").value.trim();
+
+
+	if(usernameValue === ''){
+		setErrorFor(username,'Username cannot be blank');
+	} else{
+		setSuccessFor(username);
+	}
+
+	if(emailValue === ''){
+		setErrorFor(email,'Email cannot be blank');
+	}else{
+		setSuccessFor(email);
+	}
+
+	if(passwordValue === ''){
+		setErrorFor(password,'Password cannot be blank');
+	} else{
+		setSuccessFor(password);
+	}
+
+	if(password2Value === ''){
+		setErrorFor(password2,'Password2 cannot be blank');
+	}else if (passwordValue !== password2Value){
+		setErrorFor(password2,'Password does not Match');
+	}else{
+		setSuccessFor(password2);
+	}
+
+
+
+	function setErrorFor(input,message){
+		const formControl = input.parentElement;
+		const small = formControl.querySelector('small');
+		formControl.className = 'form-control error';
+		small.innerHTML = message;
+
+	}
+	function setSuccessFor(input){
+		const formControl = input.parentElement;
+		formControl.className = 'form-control success';
+	}
+
+
+
+
+
+
+
+	}
+
+
+
+
+</script>
+</html>

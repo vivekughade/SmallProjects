@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title></title>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+
+	 <style type="text/css">
+		
+	</style> 
+	
+</head>
+<body>
+
+	<input type="number" id="num">
+	<select id="tmp">
+		<option value="">select</option>
+		<option value="cel">celsius </option>
+		<option  value="fah">fahrenheit</option>
+	</select>
+
+	<button id="btn">submit</button>
+
+	<div id="sBox"></div>
+
+	<script type="text/javascript">
+
+		const num = document.getElementById("num");
+		const tmp = document.getElementById("tmp");
+		const btn =  document.getElementById("btn");
+		const sBox = document.getElementById("sBox");
+
+		const sData = () =>{
+
+			const numValue = num.value;
+			const tmpValue = tmp.value;
+
+			if(numValue == ""){
+
+				sBox.innerHTML = "Number is Empty";
+
+			}
+
+			else if (tmpValue == ""){
+
+				sBox.innerHTML = "tmp is Empty";
+
+			} else if (tmp.value == "cel"){
+				sBox.innerHTML = (num.value * 9/5) + 32 + " fahrenheit";
+			} else if (tmp.value == "fah"){
+				const  d  = num.value - 32;
+				sBox.innerHTML = d * (5/9) + " celsius";
+			}
+		}
+
+
+
+		btn.addEventListener("click",sData);
+
+
+	</script>
+    </body>
+    </html>

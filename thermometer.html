@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>Thermometer</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" />
+        <script src="https://use.fontawesome.com/06cded4fd4.js"></script>
+       <style type="text/css">
+            .size{
+			font-size: 50px;
+		}
+		.c1{
+			color: blue;
+		}
+		.c2{
+			color:green;
+		}
+		.c3{
+			color: pink;
+		}
+		.c4{
+			color: red;
+		}
+        </style>
+    </head>
+    <body>
+        <i class="fas fa-thermometer-empty size c1" id="the"></i> 
+
+
+	<script type="text/javascript">
+			
+		const the = document.getElementById("the");
+
+		const ss = () =>{
+
+			setTimeout(()=>{
+			the.setAttribute("class","fa fa-thermometer-1 size c1");
+		},0)
+
+		setTimeout(()=>{
+			the.setAttribute("class","fa fa-thermometer-2 size c2");
+		},1000)
+
+		setTimeout(()=>{
+			the.setAttribute("class","fa fa-thermometer-3 size c3");
+		},2000)
+
+		setTimeout(()=>{
+			the.setAttribute("class","fa fa-thermometer-4 size c4");
+		},3000)
+
+		}
+
+		ss();	
+
+	setInterval(ss,4000);
+
+		
+
+
+
+	</script> 
+    </body>
+</html>
